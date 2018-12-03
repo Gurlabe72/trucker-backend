@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //Create Schema 
-const FormSchema = new Schema({
+const ItemSchema = new Schema({
     //Name and Date are the only things so far 
     name: {
         type: String, 
@@ -14,4 +14,4 @@ const FormSchema = new Schema({
     }
 })
 
-module.exports = Form.Model = mongoose.model('forms', FormSchema);
+module.exports = Item  = mongoose.model('Items', ItemSchema);
