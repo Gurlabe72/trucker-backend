@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Create Schema 
-const ItemSchema = new Schema({
-    //Name and Date are the only things so far 
+//Create Schema n
+const ItemSchema = new Schema({ 
     name: {
         type: String, 
         required: true 
@@ -12,6 +11,6 @@ const ItemSchema = new Schema({
         type: Date, 
         default: Date.now
     }
-})
+});
 
-module.exports = Item  = mongoose.model('Items', ItemSchema);
+module.exports = Item = mongoose.model('Items', ItemSchema);
