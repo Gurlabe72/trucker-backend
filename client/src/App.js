@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from './components/Form'
+import { Grid, Divider } from 'semantic-ui-react';
 
-import Header from './components/Header'
+import Header from './component/Header'
+import NaughtyList from './component/NaughtyList.jsx';
+import NiceList from './component/NiceList.jsx';
 class App extends Component {
   state = {
     email: 'e',
@@ -11,8 +13,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Header /> 
-          <Form />
+<h1> SantaBaba</h1>
+        <Header /> 
+        <Grid>
+          <Grid.Row>
+          <Grid.Column width={6}>
+              <NaughtyList />
+          </Grid.Column>
+          
+          <Grid.Column width={6}>
+              <NiceList />
+          </Grid.Column>    
+          </Grid.Row>
+        <Divider vertical>Gauge Here</Divider>
+        </Grid>
       </div>
     );
   }
