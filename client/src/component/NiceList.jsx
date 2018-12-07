@@ -32,6 +32,7 @@ class NiceList extends Component {
                                 value={email}
                                 onChange={this.handleChange}
                             />
+                            <Button content='Submit' />
                             <Button.Group>
                                 <Button onClick={negCount}>-</Button>
                                     <Button.Or text={this.state.count} />

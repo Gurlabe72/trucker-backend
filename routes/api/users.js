@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 //=============GET ONE===============// 
 router.fetch('/:id', (req, res) => {
-    User.findById(req.params.Id)
+    User.findById(req.params.id)
     .sort({ date: -1 })
     .then(user => res.json(user))
 });
@@ -28,10 +28,6 @@ router.post('/', (req, res ) => {
 }); 
 
 //=============UPDATE================//
-
-
-
-
 
 //==============DELETE==============//
 

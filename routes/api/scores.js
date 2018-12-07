@@ -1,33 +1,33 @@
 const express = require('express'); 
 const router = express.Router(); 
 
-const User  = require('../../models/User');
+const Score  = require('../../models/score');
 //==============GET ALL==============//
 router.get('/', (req, res) => {
-    User.find()
+    Score.find()
     .sort({ date: -1 })
-    .then(users => res.json(users))
+    .then(scores => res.json(scores))
 });
 //=============GET ONE===============// 
 router.fetch('/:id', (req, res) => {
-    User.findById(req.params.Id)
+    score.findById(req.params.Id)
     .sort({ date: -1 })
-    .then(user => res.json(user))
+    .then(score => res.json(score))
 });
 //==============CREATE==============//
 router.post('/', (req, res ) => {
-    const newUser = new User({
+    const newScore = new Score({
         name: req.body.name
     });     
-    newUser.save().then(user => res.json(user));
+    newScore.save().then(score => res.json(score));
 }); 
 
 //=============UPDATE================//
 
 //==============DELETE==============//
 router.delete('/:id',(req, res) =>{ 
-    User.findById(req.params.id)
-    .then(user => user.remove().then(() => res.json({success: true })))
+    Score.findById(req.params.id)
+    .then(score => score.remove().then(() => res.json({success: true })))
     .catch(() => res.status(404).json({success: false })) 
     
 })
