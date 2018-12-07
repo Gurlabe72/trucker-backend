@@ -1,34 +1,33 @@
 const express = require('express'); 
 const router = express.Router(); 
 
-const Item  = require('../../models/Item');
+const User  = require('../../models/User');
 //==============GET ALL==============//
 router.get('/', (req, res) => {
-    Item.find()
+    User.find()
     .sort({ date: -1 })
-    .then(items => res.json(items))
+    .then(users => res.json(users))
 });
 //=============GET ONE===============// 
 router.fetch('/:id', (req, res) => {
-    Item.findById(req.params.Id)
+    User.findById(req.params.Id)
     .sort({ date: -1 })
-    .then(item => res.json(item))
+    .then(user => res.json(user))
 });
 //==============CREATE==============//
 router.post('/', (req, res ) => {
-    const newItem
-     = new Item({
-        comment: req.body.comment
+    const newUser = new User({
+        name: req.body.name
     });     
-    newItem.save().then(item => res.json(item));
+    newUser.save().then(user => res.json(user));
 }); 
 
 //=============UPDATE================//
 
 //==============DELETE==============//
-router.delete('/:id',(req, res) =>{ //<-------------------------------------
-    Item.findById(req.params.id)
-    .then(item => item.remove().then(() => res.json({success: true })))
+router.delete('/:id',(req, res) =>{ 
+    User.findById(req.params.id)
+    .then(user => user.remove().then(() => res.json({success: true })))
     .catch(() => res.status(404).json({success: false })) 
     
 })
