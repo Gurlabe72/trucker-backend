@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Create Schema n
+//Create Schema 
 const ScoreSchema = new Schema({ 
-    parentName: {
-        type: String, 
-        required: true 
+    user: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    post: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Item'
+    }],
+    scoreValue: { 
+        type: Number, 
+        required: true
     },
     date: {
         type: Date, 

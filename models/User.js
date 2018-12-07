@@ -1,20 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Item = require('./Item')
 
-//Create Schema 
-const UserSchema = new Schema({ 
-    parentName: {
-        type: String, 
-        required: true 
+const UsersSchema = new Schema({
+    username: {
+        type: String,
+        required: true
     },
-    childName: {
-        type: String, 
-        required: true 
+    email: {
+        type: String,
+        required: true
     },
-    childAge: {
-        type: Number, 
-        required: true 
+    password: {
+        type: String,
+        required: true
+    },
+    token: [],
+        followers: [],
+        following: [],
+    post: [{
+        type: Schema.Types.ObjectId,
+        ref: 'item'
+    }],
+    date: { 
+        type: Date, 
+        default: Date.now 
     }
 });
 
-module.exports = User = mongoose.model('Users', UserSchema);
+module.exports = Users = mongoose.model('users', UsersSchema);

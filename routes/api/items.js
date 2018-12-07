@@ -8,12 +8,6 @@ router.get('/', (req, res) => {
     .sort({ date: -1 })
     .then(items => res.json(items))
 });
-//=============GET ONE===============// 
-router.fetch('/:id', (req, res) => {
-    Item.findById(req.params.id)
-    .sort({ date: -1 })
-    .then(item => res.json(item))
-});
 //==============CREATE==============//
 router.post('/', (req, res ) => {
     const newItem = new Item({
@@ -21,6 +15,12 @@ router.post('/', (req, res ) => {
     });     
     newItem.save().then(item => res.json(item));
 }); 
+//=============GET ONE===============// 
+router.put('/:id', (req, res) => {
+    Item.findById(req.params.id)
+    .sort({ date: -1 })
+    .then(item => res.json(item))
+});
 
 //=============UPDATE================//
 

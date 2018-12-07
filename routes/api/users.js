@@ -20,15 +20,27 @@ router.fetch('/:id', (req, res) => {
 
 router.post('/', (req, res ) => {
     const newUser = new User({
-        parentName: req.body.parentName,
-        childName: req.body.childName,
-        childAge: req.body.childAge
+
     });     
     newUser.save().then(user => res.json(user));
 }); 
 
-//=============UPDATE================//
+// //=============UPDATE================//
+router.put('/:id', (req, res) => {
 
+
+const updateUser = (userInfo, id) => {
+    let { user, title } = userInfo;
+    
+    return Users.findByIdAndUpdate({_id: id}, userInfo)
+    .then(() => {
+        return Posts.findOne({_id: id})
+        .then(user => {
+            return user;
+        })
+    })
+}
+})
 //==============DELETE==============//
 
 router.delete('/:id',(req, res) =>{ 
