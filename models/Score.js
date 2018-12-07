@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const User = require('./User');
+const Item = reuqire('./Item');
+const Schema = mongoose.Schema
 
 //Create Schema 
 const ScoreSchema = new Schema({ 
@@ -22,4 +24,4 @@ const ScoreSchema = new Schema({
     
 });
 
-module.exports = User = mongoose.model('Scores', ScoreSchema);
+module.exports = Score = mongoose.model('Scores', ScoreSchema);
