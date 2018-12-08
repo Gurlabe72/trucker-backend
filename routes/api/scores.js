@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     .then(scores => res.json(scores))
 });
 //=============GET ONE===============// 
-router.fetch('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     score.findById(req.params.Id)
     .sort({ date: -1 })
     .then(score => res.json(score))
@@ -21,9 +21,21 @@ router.post('/', (req, res ) => {
     });     
     newScore.save().then(score => res.json(score));
 }); 
-
 //=============UPDATE================//
+router.put('/:id', (req, res) => {
 
+    const updateScore = (scoreInfo, id) => {
+        let { score, title } = scoreInfo;
+        
+        return Scores.findByIdAndUpdate({_id: id}, scoreInfo)
+        .then(() => {
+            return Scores.findOne({_id: id})
+            .then(score => {
+                return score;1047
+            })
+        })
+    }
+    })
 //==============DELETE==============//
 router.delete('/:id',(req, res) =>{ 
     Score.findById(req.params.id)

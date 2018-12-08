@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('./User');
-const Item = reuqire('./Item');
+const Item = require('./Item');
 const Schema = mongoose.Schema
 
 //Create Schema 

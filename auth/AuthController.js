@@ -4,9 +4,7 @@ const router = express.Router();
 const Item  = require('../../models/Item');
 //==============GET ALL==============//
 router.get('/', (req, res) => {
-    Item.find()
-    .sort({ date: -1 })
-    .then(items => res.json(items))
+
 });
 //=============GET ONE===============// 
 router.put('/:id', (req, res) => {
@@ -21,6 +19,7 @@ router.post('/', (req, res ) => {
     });     
     newItem.save().then(item => res.json(item));
 }); 
+//=============UPDATE================//
 
 //==============DELETE==============//
 router.delete('/:id',(req, res) =>{ 

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const User = require('./User');
 const Schema = mongoose.Schema;
 
-//Create Schema n
+//Create Schema 
 const ItemSchema = new Schema({ 
     user: [{
         type: Schema.Types.ObjectId,

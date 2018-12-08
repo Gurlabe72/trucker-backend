@@ -1,13 +1,14 @@
 import React from 'react'
-import { Divider, Segment } from 'semantic-ui-react'
+import { Header, Icon, Image } from 'semantic-ui-react'
 
-const DividerExampleInverted = () => (
-    <Segment inverted>
-        <Divider inverted />
-        <Divider horizontal inverted>
-            Horizontal
-        </Divider>
-    </Segment>
+const HeaderExampleUsersIcon = () => (
+    <div>
+        <Header as='h2' icon textAlign='center'>
+            <Icon name='users' circular />
+        <Header.Content>Friends</Header.Content>
+        </Header>
+            <Image centered size='large' Href='/images/wireframe/centered-paragraph.png' />
+    </div>
 )
 
-export default DividerExampleInverted
+export default HeaderExampleUsersIcon

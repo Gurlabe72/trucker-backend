@@ -10,17 +10,14 @@ router.get('/', (req, res) => {
 });
 
 //=============GET ONE===============// 
-router.fetch('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     User.findById(req.params.id)
     .sort({ date: -1 })
     .then(user => res.json(user))
 });
-
 //==============CREATE==============//
-
 router.post('/', (req, res ) => {
     const newUser = new User({
-
     });     
     newUser.save().then(user => res.json(user));
 }); 
@@ -28,13 +25,12 @@ router.post('/', (req, res ) => {
 // //=============UPDATE================//
 router.put('/:id', (req, res) => {
 
-
 const updateUser = (userInfo, id) => {
     let { user, title } = userInfo;
     
     return Users.findByIdAndUpdate({_id: id}, userInfo)
     .then(() => {
-        return Posts.findOne({_id: id})
+        return Users.findOne({_id: id})
         .then(user => {
             return user;
         })
