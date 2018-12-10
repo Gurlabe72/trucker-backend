@@ -7,23 +7,19 @@ const jwt = require('./VerifyToken')
 const config = require('../config')
 const User = require('../models/User')
 
+const VerifyToken = require('./VerifyToken');
+
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 //==============GET ALL==============//
 router.get('/me', (req, res) => {
-    const token = req.headers['x-access-token'];
-    if(!token) return res.status(401).send({ auth: false, message: 'No Token Provided'
-});
-
-jwt.verify(token, config.secret, (err, decoded) => {
-    if (err) return res.status(500).send({
-        auth: false,
-        message: 'failed to authenticate token'
+    User.findById(req.userId, { password : 0 }  )
+    .then( user => {
+        if (!user) return res.status(404).send('No User Found');
+        return res.status(200).send(user);
     })
-        res.status(200).send(decoded);
+    .catch( err = res.status(500).send('there was a problem finding User'))
     })
-});
-
 
 //==============CREATE==============//
 router.post('/register', (req, res ) => {

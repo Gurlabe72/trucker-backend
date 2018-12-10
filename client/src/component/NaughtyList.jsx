@@ -22,7 +22,7 @@ class NaughtyList extends Component {
                     <h1>Naughty List </h1>
                     <Input placeholder='Name' name='name' value={name} onChange={this.handleChange} />
                     <Input
-                        placeholder='Email'
+                        placeholder='comment'
                         name='email'
                         value={email}
                         onChange={this.handleChange}
