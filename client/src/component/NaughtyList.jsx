@@ -13,16 +13,16 @@ class NaughtyList extends Component {
     }
 
     render() {
-        const { name, email, submittedName, submittedEmail } = this.state
+    const { name, email, submittedName, submittedEmail } = this.state
 
-        return (
+    return (
 
             <Segment>
                 <Form onSubmit={this.handleSubmit}>    
                     <h1>Naughty List </h1>
                     <Input placeholder='Name' name='name' value={name} onChange={this.handleChange} />
                     <Input
-                        placeholder='comment'
+                        placeholder='Email'
                         name='email'
                         value={email}
                         onChange={this.handleChange}
@@ -35,7 +35,7 @@ class NaughtyList extends Component {
                     <pre>{JSON.stringify({ submittedName, submittedEmail }, null, 2)}</pre>
                 </Form>
         </Segment>
-        
+
         )
     }
 }

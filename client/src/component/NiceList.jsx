@@ -27,7 +27,7 @@ class NiceList extends Component {
                             <h1>Nice List </h1>
                             <Input placeholder='Name' name='name' value={name} onChange={this.handleChange} />
                             <Input
-                                placeholder='Email'
+                                placeholder='Nice'
                                 name='email'
                                 value={email}
                                 onChange={this.handleChange}
